@@ -1,0 +1,116 @@
+
+*{
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #FFF7ED;
+    font-family: "Inter", sans-serif;
+}
+
+header{
+    padding: 2em;
+    display: flex;
+    align-items: center;
+}
+
+.logo{
+    width: 30%;
+    min-width: 100px;
+}
+
+nav{
+    display: flex;
+    gap: 2em;
+}
+
+header a {
+    text-decoration: none;
+    color: #4D4D4D;
+    font-weight: 600;
+    padding: 5px 20px;
+}
+
+header a:hover {
+    color: #161616;
+    text-decoration: underline;
+}
+
+
+/* Home Section */
+.home-container{
+    padding: 2em;
+    background: url("../src/assets/home-hero.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 500px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.home-container h1 {
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 42px;
+}
+
+.home-container p {
+    font-size: 1.12rem;
+    line-height: 24px;
+}
+
+.btn{
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 700;
+}
+
+.btn-find-van{
+    margin-top: 4em;
+    display: inline-block;
+    width: 100%;
+    color: white;
+    background-color: #FF8C38;
+}
+
+
+/* About Section */
+.about-hero-img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.about-content{
+    padding: 2em 1em;
+}
+
+.about-content h1{
+    margin: 0;
+}
+
+.explore-vans{
+    color: #161616;
+    background-color: #FFCC8D;
+    padding: 2em;
+    margin: 0 2em;
+    border-radius: 5px;
+}
+
+.explore-vans h3{
+    font-size: 1.5rem;
+    margin: 0 0 2em;
+}
+
+.btn-explore-van{
+    color: white;
+    background-color: #161616;
+    border-radius: 10px;
+}
