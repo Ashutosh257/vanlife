@@ -11,14 +11,16 @@ html, body {
 }
 
 header{
-    padding: 2em;
+    padding: 1em;
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
 .logo{
-    width: 30%;
-    min-width: 100px;
+    font-size: 2rem;
+    font-weight: 900;
+    color: black;
 }
 
 nav{
@@ -38,6 +40,68 @@ header a:hover {
     text-decoration: underline;
 }
 
+.site-wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.active-link {
+    font-weight: 600;
+    text-decoration: underline;
+    color: #161616;
+}
+
+.page-not-found{
+    /* height: 50vh; */
+    text-align: center;
+    padding: 1em;
+}
+
+.btn-not-found{
+    text-align: center;
+    display: block;
+    width: 80%;
+    margin: 3em auto;
+    padding: 1em 2em;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #161616;
+    color: #FFF7ED;
+}
+
+
+.footer{
+    background-color: #252525;
+    color: #AAAAAA;
+    padding: 1em;
+    text-align: center;
+    font-weight: 500;
+    margin-top: auto;
+}
+
+.error{
+    /* width: 60%; */
+    margin: 0 auto;
+    padding: 2em;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #f94449;
+    color: white;
+}
+
+
+.error h2{
+    margin: 0;
+    padding: 0;
+}
+
+.error p {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
 
 /* Home Section */
 .home-container{
@@ -45,7 +109,8 @@ header a:hover {
     background: url("../src/assets/home-hero.png");
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 500px;
+    /* min-height: 500px; */
+    height: 100vh;
     color: white;
     display: flex;
     flex-direction: column;
@@ -71,6 +136,9 @@ header a:hover {
     text-decoration: none;
     text-align: center;
     font-weight: 700;
+    outline: none;
+    border: none;
+    cursor: pointer;
 }
 
 .btn-find-van{
@@ -93,14 +161,14 @@ header a:hover {
 }
 
 .about-content h1{
-    margin: 0;
+    margin: 0 0 1em;
 }
 
 .explore-vans{
     color: #161616;
     background-color: #FFCC8D;
     padding: 2em;
-    margin: 0 2em;
+    margin: 0 2em 3em;
     border-radius: 5px;
 }
 
@@ -113,4 +181,301 @@ header a:hover {
     color: white;
     background-color: #161616;
     border-radius: 10px;
+}
+
+/* Vans Section */
+
+.vans-container{
+    padding: 0 2em;
+    margin-bottom: 3em;
+}
+
+.vans-container h1, .vans-container h2 {
+    margin-top: 0;
+    margin-left: 1em;
+}
+
+.filters{
+    margin: 1em 2em 2em;
+    display: flex;
+    gap: 2em;
+}
+
+.van-type-btn{
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5em 1em;
+
+    background-color: #FFEAD0;
+    color: #4D4D4D;
+    
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.clear-filter{
+    background-color: #FFF7ED;
+    text-decoration: underline;
+}
+
+.simple-filter.selected, 
+.simple-filter:hover{
+    background-color: #E17654;
+    color: white;
+}
+
+.rugged-filter.selected,
+.rugged-filter:hover{
+    background-color: #115E59;
+    color: white;
+}
+
+.luxury-filter.selected,
+.luxury-filter:hover{
+    background-color: #161616;
+    color: white;
+}
+
+
+.vans{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 4em 2em;
+}
+
+.van-card a, .host-van-card a {
+    color: #161616;
+    text-decoration: none;    
+}
+
+.van-card{
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.van-card img{
+    width: 400px;
+    /* width: 100%; */
+    border-radius: 10px;
+}
+
+.van-text{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.van-text h2, .van-text p{
+    margin: 0;
+}
+
+.van-type, .host-van-type{
+    color: #FFEAD0;
+    background-color: #E17654;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    font-weight: 600;
+    align-self: flex-start;
+}
+
+.simple{
+    background-color: #E17654;
+}
+
+.rugged{
+    background-color: #115E59;
+}
+
+.luxury{
+    background-color: #161616;
+}
+
+/* Van detail  */
+
+.van-detail-container{
+    padding: 0 2em 2em; 
+}
+
+.van-detail{
+    margin-top: 2em;
+    display: flex;
+    /* align-items: center; */
+    gap: 2em;
+}
+
+.van-detail img {
+    max-width: 500px;
+    max-height: 500px;
+    border-radius: 10px;
+}
+
+.van-body-text{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.van-detail .btn-rent-van {
+    background-color: #FF8C38;
+    color: white;
+    font-size: 1.125rem;
+}
+
+
+
+/* Host section */
+
+.host-layout a {
+    text-decoration: none;
+    color: #4D4D4D;
+    font-weight: 600;
+    padding: 5px 20px;
+}
+
+.host-layout a:hover {
+    color: #161616;
+    text-decoration: underline;
+}
+
+
+/* Host vans section */
+.host-vans-container{
+    padding: 1em 2em;
+}
+
+.host-vans-container h1{
+    margin: 0;
+}
+
+.host-van-link-wrapper{
+    color: #161616;
+    text-decoration: none;
+}
+
+.host-van-card{
+    background-color: white;
+    padding: 1em;
+    margin: 2em 0;
+    display: flex;
+    gap: 2em;
+}
+
+.host-van-card img{
+    width: 100px;
+    border-radius: 10px;
+}
+
+/* Host van detail page */
+.host-van-detail-container{
+    padding: 1em 4em;
+}
+
+.goto-previous-page{
+    color: #201F1D;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    gap: 0.5em;
+    margin-bottom: 1em;
+}
+
+.goto-previous-page > p {
+    border-bottom: 1px solid #201F1D;
+}
+
+.host-vans-layout{
+    padding: 1em;
+    background-color: white;
+}
+
+.host-detail-layout{
+    margin-bottom: 1em;
+}
+
+.host-van-info{
+    margin: 1em 1em 2em;
+    display: flex;
+    gap: 2em;
+}
+
+.host-van-info img{
+    width: 150px;
+}
+
+.host-van-type{
+    font-size: 0.85rem;
+}
+
+.host-van-details > div{
+    margin: 0.8em;
+}
+
+
+/* Login */
+
+.login-container{
+    padding: 2em;
+    text-align: center;
+}
+
+.login-prompt{
+    color: #f94449;
+}
+.login-container form{
+    margin-top: 2em;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form input{
+    width: 60%;
+    display: block;
+    padding: 0.8em 1em;
+
+    outline: none;
+    border: 1px solid rgba(209, 213, 219);
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
+}
+
+.login-form > input:first-of-type {
+    border-radius: 6px 6px 0px 0px;
+}
+
+.login-form > input:last-of-type {
+    border-radius: 0px 0px 6px 6px;
+    border-top: none;
+}
+
+.login-btn{
+    padding: 1em;
+    margin-top: 2em;
+
+    font-size: 1rem;
+    font-weight: 400;
+    
+    width: 60%;
+    display: block;
+
+    background-color: #FF8C38;
+    color: white;
+}
+
+
+@media (max-width: 768px){
+    .van-detail{
+        flex-direction: column;
+        gap: 2em;
+    }
 }
