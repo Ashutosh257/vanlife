@@ -1,7 +1,7 @@
 
 import backArrow  from "../../assets/arrow-left.svg"
 import { useState, useEffect } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
+import { useParams, Link, useLocation, redirect } from 'react-router-dom';
 import { getVan } from "../../api";
 import { showErrorMessage } from "../../utils";
 
@@ -14,6 +14,8 @@ const VanDetail = () => {
     const [van, setVan] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
+
+    const userId = localStorage.getItem("userId")
 
     useEffect(() => {
         async function loadVan(){
@@ -29,6 +31,16 @@ const VanDetail = () => {
   
         loadVan()
     }, [params.id])
+
+    function handleRentCar(){
+        console.log(userId)
+        if(userId){
+            alert("booked!")
+        }else{
+            console.log("redirect")
+            redirect("/login")
+        }
+    }
 
     // console.log(location.state)
     const search = location.state?.search || ""
@@ -73,7 +85,15 @@ const VanDetail = () => {
                                     <p>
                                         {van.description}
                                     </p>
-                                    <button className="btn btn-rent-van">Rent this van</button>
+                                    <Link 
+                                        // to={userId ? alert("booked!") : "login"}
+                                        className="btn btn-rent-van"
+                                    >
+                                            Rent this van
+                                    </Link>
+                                    <h3>
+                                        Renting a van functionality is still ongoing!
+                                    </h3>
                                 </div>
                             </>
                         ) 

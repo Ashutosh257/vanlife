@@ -1,21 +1,12 @@
 
-import { Link, NavLink } from "react-router-dom"
-
 import React from 'react'
+import { Link, NavLink } from "react-router-dom"
 import MenuDropdown from "./MenuDropdown"
-import { getUser } from "../api"
 
 
 const Header = () => {
     const userId = localStorage.getItem("userId")
-    console.log(userId)
-
-    let role = "user"
-
-    if(userId){
-        role = getUser(userId)
-        console.log("logged in")
-    }
+    // console.log(role)
 
     return (
       <header>
@@ -42,13 +33,8 @@ const Header = () => {
                     Vans
                 </NavLink>
                 {
-                    userId ? (
-                        // <Link 
-                        //     className={({isActive}) => isActive ? "active-link" : null} 
-                        // >
-                            <MenuDropdown />
-                        // </Link>
-                    ) : (
+                    userId ? ( <MenuDropdown />) : 
+                    (
                         <NavLink 
                             to="login"
                             className={({isActive}) => isActive ? "active-link" : null} 

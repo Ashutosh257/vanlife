@@ -19,12 +19,14 @@ const HostVansLayout = () => {
     const [loading, setLoading] = React.useState(false)
     const [error, setError] = React.useState(null)
 
+    const userId = localStorage.getItem("userId")
+
     React.useEffect( () => {
         
         async function loadVan(){
             try {
                 setLoading(true)
-                const data = await getHostVan(id)
+                const data = await getHostVan(userId, id)
                 setVan(data)
             }catch (err){
                 setError(err)

@@ -1,17 +1,14 @@
 
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 import avatar from "../assets/avatar-icon.png"
 import { Link, redirect } from 'react-router-dom'
 
-import { UserContext } from '../components/Layout'
 
 const MenuDropdown = () => {
     
-    const { setUserToLocal } = useContext(UserContext)
-
     function logout(){
-        setUserToLocal({})
         localStorage.removeItem("userId")
+        window.location.reload()
         redirect("/")
     }
 

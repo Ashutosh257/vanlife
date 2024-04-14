@@ -81,7 +81,7 @@ header a:hover {
 }
 
 .error{
-    /* width: 60%; */
+    width: 60%;
     margin: 0 auto;
     padding: 2em;
     text-align: center;
@@ -470,6 +470,18 @@ header a:hover {
 
     background-color: #FF8C38;
     color: white;
+}
+
+/* dashboard */
+
+.dashboard-container{
+    padding: 2em;
+}
+
+/* Income */
+
+.income-container{
+    padding: 2em;
 }
 
 

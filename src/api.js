@@ -1,5 +1,6 @@
 
 import { initializeApp } from "firebase/app"
+// import { firestore } from 'firebase'
 import { 
     getFirestore,
     collection,
@@ -7,7 +8,8 @@ import {
     doc,
     getDoc,
     query,
-    where
+    where,
+    collectionGroup
 } from "firebase/firestore/lite"
 
 
@@ -59,12 +61,19 @@ export async function getHostVans(id){
     return vans
 }
 
-export async function getHostVan(id){
+export async function getHostVan(userId, id){
     const vanDocRef = doc(db, "vans", id)
     const snapshot = await getDoc(vanDocRef)
-    return {
-        ...snapshot.data(),
-        id: snapshot.id
+    if (snapshot.exists() && snapshot.data().userId === userId) {
+        return {
+            ...snapshot.data(),
+            id: snapshot.id
+        }
+    }else{
+        throw {
+            message: "This van doesn't exists!",
+            status: 404
+        }
     }
 }
 
@@ -72,10 +81,14 @@ export async function getHostVan(id){
 const usersCollectionRef = collection(db, "users")
 
 export async function getUser(userId){
-    const q = query(usersCollectionRef, where("id", "==", `${userId}`))
-    const snapshot = await getDocs(q)
-    console.log(snapshot.docs)
-    return 
+    const userDocRef = doc(db, "users", userId)
+    const snapshot = await getDoc(userDocRef)
+    // console.log(snapshot.data())
+    return {
+        ...snapshot.data(),
+        password: null,
+        id: snapshot.id
+    }
 }
 
 export async function loginUser(creds) {

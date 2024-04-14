@@ -1,10 +1,9 @@
 
 
-import React, { useContext } from 'react'
+import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { loginUser } from '../api'
 import { showErrorMessage } from '../utils'
-import { UserContext } from '../components/Layout'
 
 
 const Login = () => {
@@ -16,8 +15,6 @@ const Login = () => {
     const [status, setStatus] = React.useState("idle")
     const [error, setError] = React.useState(null)
 
-    const user = useContext(UserContext)
-    // console.log(user)
 
     const location = useLocation()
     const navigate = useNavigate()
@@ -29,13 +26,11 @@ const Login = () => {
         
         loginUser(loginFormData)
         .then(data => {
-                // console.log(data)
                 localStorage.setItem("userId", data.id)
-                
-                user.setUserToLocal()
-
                 setError(null)
-                navigate("/host", { replace: true })
+                const redirectTo = location.state?.from?.pathname || "/host"
+                navigate(redirectTo, { replace: true })
+                window.location.reload()
             })
             .catch(err => setError(err))
             .finally(() => {
@@ -62,7 +57,7 @@ const Login = () => {
         }, 3000)
     }
     
-    // console.log(errorMessage)
+    // console.log(location)
 
     return (
         
